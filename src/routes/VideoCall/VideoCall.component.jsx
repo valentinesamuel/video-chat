@@ -8,8 +8,8 @@ import { VideoCallWrapper } from "./VideoCall.styles";
 const VideoCall = () => {
     const { roomID } = useParams();
     const meeting = async (element) => {
-        const appID = Number(import.meta.env.VITE_APP_APPID);
-        const serverSecret = import.meta.env.VITE_APP_SERVER_SECRET;
+        const appID = Number(process.env.VITE_APP_APPID);
+        const serverSecret = process.env.VITE_APP_SERVER_SECRET;
         console.log(appID, serverSecret);
         const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
             appID,
