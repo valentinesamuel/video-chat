@@ -6,12 +6,14 @@ import React from 'react'
 import { Descrption, Heading, HomeContainer, JoinButton, RoomInput, Image } from './Home.styles';
 
 const Home = () => {
-    const [RoomCode, setRoomCode] = useState("");
+    const [roomCode, setRoomCode] = useState("");
+    const [userName, setUserName] = useState("");
+
     const navigate = useNavigate();
 
     const submitCode = (e) => {
         e.preventDefault();
-        navigate(`/room/${RoomCode}`);
+        navigate(`/room/${roomCode}/${userName}`);
     };
 
     return (
@@ -22,14 +24,20 @@ const Home = () => {
                 >
                     <Heading>Welcome</Heading>
                     <Descrption>Please enter a room ID to join</Descrption>
-               
                     <RoomInput
                         type="text"
                         required
                         placeholder="Enter Room Code"
-                        value={RoomCode}
+                        value={roomCode}
                         onChange={(e) => setRoomCode(e.target.value)}
-
+                    />
+                    <br />
+                    <RoomInput
+                        type="text"
+                        required
+                        placeholder="Enter your name"
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
                     />
                     <br />
                     <JoinButton

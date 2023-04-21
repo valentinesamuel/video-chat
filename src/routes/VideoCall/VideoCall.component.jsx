@@ -2,11 +2,13 @@ import { useParams } from "react-router-dom";
 
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
 
-import React from 'react'
+import React, { useState } from 'react'
 import { VideoCallWrapper } from "./VideoCall.styles";
 
 const VideoCall = () => {
-    const { roomID } = useParams();
+    const { roomID, user } = useParams();
+
+    console.log(user);
     const meeting = async (element) => {
         const appID = Number(import.meta.env.VITE_APP_APPID);
         const serverSecret = import.meta.env.VITE_APP_SERVER_SECRET;
@@ -16,7 +18,7 @@ const VideoCall = () => {
             serverSecret,
             roomID,
             Date.now().toString(),
-            "user"
+            user.replace(/^\$/, "")
         );
         const zp = ZegoUIKitPrebuilt.create(kitToken);
 
@@ -28,7 +30,7 @@ const VideoCall = () => {
         });
     };
     return (
-        <VideoCallWrapper ref={meeting} style={{  }}></VideoCallWrapper>
+        <VideoCallWrapper ref={meeting} ></VideoCallWrapper> 
     )
 }
 
