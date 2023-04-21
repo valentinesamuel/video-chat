@@ -17,12 +17,16 @@ const Home = () => {
     return (
         <HomeContainer>
             <div>
+                <p>{import.meta.env.VITE_APP_APPID}
+                </p>
+                <p>
+                    {import.meta.env.VITE_APP_SERVER_SECRET}</p>
                 <form
                     onSubmit={submitCode}
                 >
                     <Heading>Welcome</Heading>
                     <Descrption>Please enter a room ID to join</Descrption>
-               
+
                     <RoomInput
                         type="text"
                         required
