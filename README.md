@@ -21,11 +21,11 @@ To run this project locally:
 
 - Clone the github repository
 
-`git clone https://github.com/valentinesamuel/techtime`
+`git clone https://github.com/valentinesamuel/video-chat`
 
 - Enter into the project's root directory
 
-`cd techtime`
+`cd video-chat`
 
 - Install all the dependencies
 
